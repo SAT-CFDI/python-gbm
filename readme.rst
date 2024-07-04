@@ -49,7 +49,7 @@
 GBM API
 ==========================
 
-* GUI APP to Generate CFDI
+* GBM API Non-Official Library
 
 
 Installation
