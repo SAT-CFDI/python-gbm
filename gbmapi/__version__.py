@@ -3,8 +3,8 @@ from importlib.metadata import version, PackageNotFoundError
 __title__ = "GBM Api"
 __package__ = "gbmapi"
 
-__description__ = "GMB Non-official API for Python"
-__git_project__ = "SAT-CFDI/python-gbm"
+__description__ = "GBM Non-official API for Python"
+__git_project__ = "SAT-CFDI/python-gbmapi"
 __url__ = f"https://github.com/{__git_project__}"
 
 __docs_url__ = f"https://{__package__}.readthedocs.io"
