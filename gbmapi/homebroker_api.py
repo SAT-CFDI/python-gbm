@@ -1,10 +1,10 @@
 from datetime import date
-from enum import IntEnum
+from enum import IntEnum, Enum
 from time import time
 
-from gbm import GBMAuth
-from gbm.base import GBMBase
-from gbm.utils import format_date, format_date_end
+from . import GBMAuth
+from .base import GBMBase
+from .utils import format_date, format_date_end
 
 
 class InstrumentType(IntEnum):
@@ -15,6 +15,19 @@ class InstrumentType(IntEnum):
 class CapitalOrderType(IntEnum):
     NORMAL_BUY = 1
     NORMAL_SELL = 8
+
+
+class ProcessStatus(IntEnum):
+    NEW = 2
+    CANCELED = 5
+    FULL = 7
+    PARTIAL = 8
+    REJECTED = 9
+
+#
+# class Direction(Enum):
+#     BUY = True
+#     SELL = False
 
 
 APP_ID = 16
@@ -97,7 +110,8 @@ class GBMHomebrokerApi(GBMBase):
         )
 
     # OPERATION
-    def operation_get_blotter_orders(self, instrument_types: list, process_date: date):
+    def operation_get_blotter_orders(self, instrument_types: list, process_date: date = None):
+        process_date = process_date or date.today()
         return self._request(
             path="/GBMP/api/Operation/GetBlotterOrders",
             json={

@@ -1,8 +1,8 @@
 import requests
 
-from gbm import GBMAuth
-from gbm.exceptions import ResponseError
-from gbm.utils import STANDARD_HEADERS
+from . import GBMAuth
+from .exceptions import ResponseError
+from .utils import STANDARD_HEADERS
 
 
 class GBMBase:

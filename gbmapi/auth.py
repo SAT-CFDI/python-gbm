@@ -4,8 +4,8 @@ from base64 import urlsafe_b64encode
 import pyotp
 import requests
 
-from gbm.exceptions import ResponseError
-from gbm.utils import generate_secure_base64_string, STANDARD_HEADERS, load_jwt
+from .exceptions import ResponseError
+from .utils import generate_secure_base64_string, STANDARD_HEADERS, load_jwt
 
 CLIENT_ID = "7c464570619a417080b300076e163289"
 

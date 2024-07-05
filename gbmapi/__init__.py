@@ -1,5 +1,5 @@
-from auth import GBMAuth
-from api import GBMApi
+from .auth import GBMAuth
+from .api import GBMApi
 
 
 

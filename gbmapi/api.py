@@ -1,7 +1,7 @@
 from enum import StrEnum
 from urllib.parse import quote
 
-from gbm.base import GBMBase
+from .base import GBMBase
 
 GBM_APP = 'https://app.gbm.com'
 
