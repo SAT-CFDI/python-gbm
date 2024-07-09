@@ -43,7 +43,7 @@ class GBMHomebrokerApi(GBMBase):
         self.legacy_contract_id = legacy_contract_id
         self.collecting_account = collecting_account
 
-    def calculate_order_hash(self, issue_id, qty: int, capital_order_type_id):
+    def calculate_order_hash(self, issue_id, qty: int, capital_order_type_id: CapitalOrderType):
         return "{0}{1}{2}{3}{4}{5}".format(
             APP_ID,
             int(time() * 1000),
@@ -146,7 +146,7 @@ class GBMHomebrokerApi(GBMBase):
             json=payload
         )
 
-    def operation_register_capital_order(self, issue_id: str, instrument_type: InstrumentType, qty: int, price, capital_order_type_id: CapitalOrderType, duration: int = 1):
+    def operation_register_capital_order(self, issue_id: str, instrument_type: InstrumentType, qty: int, price: int | float, capital_order_type_id: CapitalOrderType, duration: int = 1):
         return self._request(
             path="/GBMP/api/Operation/RegisterCapitalOrder",
             json={
