@@ -26,6 +26,9 @@ class GBMBase:
         )
 
         if resp.status_code != 200:
+            if resp.status_code == 401:
+                self.auth.credentials = None
+
             raise ResponseError(resp)
 
         resp = resp.json()
