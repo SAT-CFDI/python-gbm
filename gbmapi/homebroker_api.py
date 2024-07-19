@@ -149,6 +149,10 @@ class GBMHomebrokerApi(GBMBase):
     def operation_register_capital_order(self, issue_id: str, instrument_type: InstrumentType, qty: int, price: int | float, capital_order_type_id: CapitalOrderType, duration: int = 1):
         return self._request(
             path="/GBMP/api/Operation/RegisterCapitalOrder",
+            headers={
+                'device-latitude': self.auth.latitude,
+                'device-longitude': self.auth.longitude,
+            },
             json={
                 "contractId": self.legacy_contract_id,
                 "duration": duration,
