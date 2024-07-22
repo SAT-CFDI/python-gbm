@@ -1,4 +1,5 @@
 from datetime import date
+from decimal import Decimal
 from enum import IntEnum, Enum
 from time import time
 
@@ -146,7 +147,7 @@ class GBMHomebrokerApi(GBMBase):
             json=payload
         )
 
-    def operation_register_capital_order(self, issue_id: str, instrument_type: InstrumentType, qty: int, price: int | float, capital_order_type_id: CapitalOrderType, duration: int = 1):
+    def operation_register_capital_order(self, issue_id: str, instrument_type: InstrumentType, qty: int, price: int | float | Decimal, capital_order_type_id: CapitalOrderType, duration: int = 1):
         return self._request(
             path="/GBMP/api/Operation/RegisterCapitalOrder",
             headers={
